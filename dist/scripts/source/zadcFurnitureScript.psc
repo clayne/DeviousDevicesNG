@@ -349,7 +349,9 @@ Function LockActor(actor act)
 	If SendDeviceModEvents
 		SendDeviceEvent(True)
 	EndIf
-	user.AddToFaction(zadc_Faction_FurnitureUser)
+	if zadc_Faction_FurnitureUser
+		user.AddToFaction(zadc_Faction_FurnitureUser)
+	endif
 EndFunction
 
 Function UnlockActor()
@@ -392,7 +394,9 @@ Function UnlockActor()
 	;	user.SetScale(OldScale)
 	;	OldScale = 1.0
 	;EndIf
-	user.RemoveFromFaction(zadc_Faction_FurnitureUser)
+	if zadc_Faction_FurnitureUser
+		user.RemoveFromFaction(zadc_Faction_FurnitureUser)
+	endif
 	user = none		
 	isSelfBondage = False
 	isLockManipulated = False
